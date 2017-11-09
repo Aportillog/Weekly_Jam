@@ -9,6 +9,7 @@ public class Asteroid : MonoBehaviour {
     float maxScale = 1.2f;
     [SerializeField]
     float rotationOffset = 50f;
+
     Transform myT;
     Vector3 randRotation;
 
@@ -36,4 +37,14 @@ public class Asteroid : MonoBehaviour {
     {
         myT.Rotate(randRotation * Time.deltaTime);
     }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Destroy(col.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
+
 }

@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33644392902533550}
   - component: {fileID: 23245842059585824}
   - component: {fileID: 114544314721689266}
+  - component: {fileID: 136134397820957520}
+  - component: {fileID: 54954350980562720}
   m_Layer: 0
   m_Name: Asteroid 01
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1260605654571234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.17, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,6 +83,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1260605654571234}
   m_Mesh: {fileID: 4300000, guid: 8552efffc66648c41b609e53786899aa, type: 3}
+--- !u!54 &54954350980562720
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260605654571234}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114544314721689266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,3 +112,16 @@ MonoBehaviour:
   minScale: 0.8
   maxScale: 1.2
   rotationOffset: 50
+--- !u!136 &136134397820957520
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1260605654571234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.010382679
+  m_Height: 0.030918641
+  m_Direction: 0
+  m_Center: {x: -0.00044226885, y: -0.0003613901, z: -0.00028913378}

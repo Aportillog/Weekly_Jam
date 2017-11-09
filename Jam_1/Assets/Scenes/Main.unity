@@ -151,7 +151,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1180372870
+--- !u!1001 &1495035849
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -190,26 +190,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4149789217438044, guid: 9a0030e5f23a57041982a58ec3c30a40, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4149789217438044, guid: 9a0030e5f23a57041982a58ec3c30a40, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4149789217438044, guid: 9a0030e5f23a57041982a58ec3c30a40, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a0030e5f23a57041982a58ec3c30a40, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1391043443 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4149789217438044, guid: 9a0030e5f23a57041982a58ec3c30a40,
-    type: 2}
-  m_PrefabInternal: {fileID: 1180372870}
 --- !u!1 &1583290367
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +359,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3845dcd3c48362a4bb122b2570e5ddfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1391043443}
   defaultDistance: {x: 0, y: 4, z: -10}
   distanceDamp: 0.3

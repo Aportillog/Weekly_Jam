@@ -5,18 +5,18 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour {
 
     [SerializeField]
-    Transform target;
-    [SerializeField]
     Vector3 defaultDistance = new Vector3(0f, 4f, -10f);
     [SerializeField]
     float distanceDamp = 0.15f;
 
     Transform myT;
+    Transform target;
     Vector3 velocity = Vector3.one;
 
     void Awake()
     {
         myT = transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void LateUpdate()
