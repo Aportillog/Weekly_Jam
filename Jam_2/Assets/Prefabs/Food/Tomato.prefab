@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4680397445574870}
   - component: {fileID: 33233204901618838}
-  - component: {fileID: 64187232822881274}
   - component: {fileID: 23676537847405952}
   m_Layer: 0
   m_Name: Plane
@@ -38,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4654063550187678}
   - component: {fileID: 33467722864081962}
-  - component: {fileID: 64206641098488318}
   - component: {fileID: 23873193303671520}
   m_Layer: 0
   m_Name: Plane (1)
@@ -56,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4603574057162046}
   - component: {fileID: 33446007066249452}
-  - component: {fileID: 135740635946763744}
   - component: {fileID: 23299333515459650}
   m_Layer: 0
   m_Name: Sphere
@@ -73,7 +70,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4019407696664500}
-  - component: {fileID: 114444395672531674}
   - component: {fileID: 135802463357121486}
   - component: {fileID: 54512937908144550}
   - component: {fileID: 114289245637782572}
@@ -92,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 1906885145950232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4603574057162046}
   - {fileID: 4680397445574870}
@@ -121,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 1281728724223122}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.496, z: 0}
-  m_LocalScale: {x: 0.015, y: 1, z: -0.13}
+  m_LocalScale: {x: 0.02, y: 1, z: -0.15}
   m_Children: []
   m_Father: {fileID: 4019407696664500}
   m_RootOrder: 2
@@ -133,8 +129,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185715745966472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.496, z: 0}
-  m_LocalScale: {x: 0.015, y: 1, z: -0.13}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.02, y: 1, z: -0.15}
   m_Children: []
   m_Father: {fileID: 4019407696664500}
   m_RootOrder: 1
@@ -269,36 +265,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 10
   m_CollisionDetection: 0
---- !u!64 &64187232822881274
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185715745966472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64206641098488318
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281728724223122}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114289245637782572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,29 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8e074edddd2aa4c83cfd37d84e8f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114444395672531674
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906885145950232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7acceefa24a41094e93ed785df7cd725, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &135740635946763744
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1394799797127268}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  rotationOffset: 50
 --- !u!135 &135802463357121486
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -340,7 +286,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906885145950232}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

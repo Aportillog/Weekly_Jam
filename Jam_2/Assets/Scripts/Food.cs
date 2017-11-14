@@ -16,13 +16,18 @@ public class Food : MonoBehaviour {
 
     void Start()
     {
+        CalculateRotation();
     }
 
     void Update()
     {
+        myT.Rotate(randRotation * Time.deltaTime);
+    }
+
+    void CalculateRotation()
+    {
         randRotation.x = Random.Range(-rotationOffset, rotationOffset);
         randRotation.y = Random.Range(-rotationOffset, rotationOffset);
         randRotation.z = Random.Range(-rotationOffset, rotationOffset);
-        myT.Rotate(randRotation * Time.deltaTime);
     }
 }
