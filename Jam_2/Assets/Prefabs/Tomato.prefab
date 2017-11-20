@@ -70,12 +70,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4019407696664500}
-  - component: {fileID: 135802463357121486}
   - component: {fileID: 54512937908144550}
+  - component: {fileID: 135802463357121486}
   - component: {fileID: 114289245637782572}
   m_Layer: 0
   m_Name: Tomato
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationOffset: 50
+  rotationFlag: 1
 --- !u!135 &135802463357121486
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -286,7 +287,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906885145950232}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
