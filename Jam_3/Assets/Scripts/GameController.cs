@@ -61,11 +61,11 @@ public class GameController : MonoBehaviour {
 
     }
 
-    IEnumerator LoadNewScene(int lvl)
+    public void LoadNewScene(int lvl)
     {
         //fade out the game and load a new level
-        float fadeTime = GameObject.Find("GameController").GetComponent<SceneFading>().BeginFade(1);
-        yield return new WaitForSeconds(fadeTime);
+        //float fadeTime = GameObject.Find("GameController").GetComponent<SceneFading>().BeginFade(1);
+        //yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene(lvl);
     }
 }
