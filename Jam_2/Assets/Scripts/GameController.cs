@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
     public GameObject foodContainer;
+    public GameObject foodContainerModel;
+    public GameObject playerModel;
     public Vector3 spawnValues;
     public float spawnWait;
     public float startWait;
@@ -13,26 +16,28 @@ public class GameController : MonoBehaviour {
     public float spawnLimit_x_max = 2;
     public float spawnLimit_x_min =-5;
     public int level = 0;
-
     public bool levelPassed = false;
+    public Text LevelText;
+    public Vector3 targetPosition;
+
     int foodCount = 0;
+    
 
     void Start()
     {
         levelPassed = false;
+        LevelText.text = "0";
+        TargetGenerator();
         ChangeGravity();
         StartCoroutine(SpawnWaves());
+
     }
 
     void Update()
     {
     }
-    void FixedUpdate()
-    {
-        //ChangeGravity();
-    }
 
-
+    //Waves spawner
     IEnumerator SpawnWaves()
     {
         yield return new WaitForSeconds(startWait);
@@ -62,10 +67,24 @@ public class GameController : MonoBehaviour {
     {
         level += 1;
         levelPassed = false;
+        //Update level marker
+        LevelText.text = level.ToString();
         //Gravity increments with level
         gravity += 0.1f;
         ChangeGravity();
         //SpawnWait decrements with level
         spawnWait -= 0.1f;
+    }
+
+    void TargetGenerator()
+    {
+        //Create skewer
+        Instantiate(playerModel, targetPosition, Quaternion.identity);
+        //Create Food
+        for (int i = 0; i < 5; i++)
+        {
+            Quaternion randRot = new Quaternion(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1), 0);
+            Instantiate(foodContainerModel.transform.GetChild(Random.Range(0, foodContainerModel.transform.childCount)), targetPosition + new Vector3(0, i*0.42f, 0), randRot);
+        }
     }
 }
