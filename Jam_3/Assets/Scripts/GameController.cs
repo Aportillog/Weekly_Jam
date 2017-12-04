@@ -6,25 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-    public Text weaponInput;
-    public Text suspectInput;
-    public string WinnerSuspect = "Ross";
-    public string WinnerWeapon = "Tusk";
+    public string WinnerSuspect = "Never";
+    public string WinnerWeapon = "Win";
 
-    private int level;
+    private int currentLevel;
 
+    private Text weaponInput;
+    private Text suspectInput;
 
     // Use this for initialization
-    void Start () {
-        weaponInput.text = "";
-        suspectInput.text = "";
-        level = 1;
+    void Awake () {
+
+        DontDestroyOnLoad(transform.gameObject);
+
+        currentLevel = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level > 0)
+        {
+            //Find weapon and suspect input
+            weaponInput = GameObject.Find("Weapon_input").transform.gameObject.GetComponent<Text>();
+            suspectInput = GameObject.Find("Suspect_input").transform.gameObject.GetComponent<Text>();
+
+            if ((weaponInput != null) && (suspectInput != null))
+            {
+                weaponInput.text = "";
+                suspectInput.text = "";
+                currentLevel = 1;
+            }
+        }
+    }
 
     public void ChangeHunchValue(string objectName, string objectTag)
     {
@@ -50,8 +63,8 @@ public class GameController : MonoBehaviour {
             //Si no, cargar siguiente nivel
             else
             {
-                level++;
-                LoadNewScene(level);
+                Debug.Log("Passed!!");
+                StartCoroutine(LoadNewScene(currentLevel));
             }
         }
     }
@@ -61,11 +74,22 @@ public class GameController : MonoBehaviour {
 
     }
 
-    public void LoadNewScene(int lvl)
+    IEnumerator LoadNewScene(int currentLvl)
     {
         //fade out the game and load a new level
-        //float fadeTime = GameObject.Find("GameController").GetComponent<SceneFading>().BeginFade(1);
-        //yield return new WaitForSeconds(fadeTime);
-        SceneManager.LoadScene(lvl);
+        float fadeTime = GameObject.Find("GameController").GetComponent<SceneFading>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene(currentLevel + 1);
+    }
+
+    //Function for menu play button
+    public void Wrapper(int targetLevel)
+    {
+        StartCoroutine(LoadNewScene(targetLevel));
+    }
+
+    public int GetLevel()
+    {
+        return currentLevel;
     }
 }
