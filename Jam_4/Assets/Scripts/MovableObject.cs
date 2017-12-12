@@ -35,6 +35,10 @@ public class MovableObject : MonoBehaviour {
             {
                 SetCanMove(false);
             }
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                Destroy(this.gameObject);
+            }
         }
 	}
 
