@@ -4,22 +4,36 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+    public static GameController instance;
+
     [SerializeField]
     public GameObject[] spawnableObjects; //All the spawnable objects referenced at unity
 
     public bool isBuilding;
     public bool objectsCanMove; //Enable moving in all objects when instantiated
 
-    private GameObject clone;
+    private GameObject clone;   //GameObject temp to control object spawns
 
-    //Dictionary
-    Dictionary<string, GameObject> spawnObjectsDic;
+    private AudioManager m_AudioManager;
 
-    // Use this for initialization
-    void Start () {
+    private Dictionary<string, GameObject> spawnObjectsDic; //Dictionary with all spawnable objects
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         //Make GameController inmortal
         DontDestroyOnLoad(this);
+    }
+
+    // Use this for initialization
+    void Start () {
 
         //Initialize variables
         isBuilding = false;
@@ -32,11 +46,14 @@ public class GameController : MonoBehaviour {
         {
             spawnObjectsDic.Add(spawnableObjects[i].name, spawnableObjects[i]);
         }
-        //Debug the dictionary
-        foreach (KeyValuePair<string, GameObject> entry in spawnObjectsDic)
-        {
-            Debug.Log(entry.Key);
-        }
+        ////Debug the dictionary
+        //foreach (KeyValuePair<string, GameObject> entry in spawnObjectsDic)
+        //{
+        //    Debug.Log(entry.Key);
+        //}
+
+        //Find AudioManager to play sounds
+        m_AudioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -54,6 +71,8 @@ public class GameController : MonoBehaviour {
     {
         if (!isBuilding)
         {
+            //Play building sound
+            m_AudioManager.Play("SelectItem");
             //Now we are building
             isBuilding = true;
             //Try to get the object from the dictionary

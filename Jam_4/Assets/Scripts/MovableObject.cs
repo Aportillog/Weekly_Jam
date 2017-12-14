@@ -15,15 +15,20 @@ public class MovableObject : MonoBehaviour {
 
     private bool canPlace;
 
-	// Use this for initialization
-	void Start () {
+    private AudioManager m_AudioManager;
+
+    // Use this for initialization
+    void Start () {
 
         //Fecth SpriteRenderer from the go
         m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         m_previousColor = m_NormalColor;
         //Let objects to be placed at the start
         canPlace = true;
-	}
+
+        //Find AudioManager to play sounds
+        m_AudioManager = FindObjectOfType<AudioManager>();
+    }
 	
 
 	void Update () {
@@ -33,10 +38,12 @@ public class MovableObject : MonoBehaviour {
             MoveWithMouse();
             if (Input.GetButtonDown("Fire2") && canPlace)
             {
+                m_AudioManager.Play("PlaceItem");
                 SetCanMove(false);
             }
             if (Input.GetKeyDown(KeyCode.Delete))
             {
+                m_AudioManager.Play("DestroyItem");
                 Destroy(this.gameObject);
             }
         }
@@ -58,6 +65,7 @@ public class MovableObject : MonoBehaviour {
         //Change object position once placed
         if (!canMove)
         {
+            m_AudioManager.Play("SelectItem");
             SetCanMove(true);
         }
         
