@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     
     public bool isBuilding;
     public bool objectsCanMove; //Enable moving in all objects when instantiated
+    public bool isPaused;       //Variable to check if the game is paused
 
     private GameObject clone;   //GameObject temp to control object spawns
 
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour {
 
         //Initialize variables
         isBuilding = false;
+        isPaused = false;
 
         //Dictionary code for managing spawnable objects
         //Add all objects to a dictionary to instantly spawn the desired object, without looping every time the player builds something
@@ -46,11 +48,6 @@ public class GameController : MonoBehaviour {
         {
             spawnObjectsDic.Add(spawnableObjects[i].name, spawnableObjects[i]);
         }
-        ////Debug the dictionary
-        //foreach (KeyValuePair<string, GameObject> entry in spawnObjectsDic)
-        //{
-        //    Debug.Log(entry.Key);
-        //}
 
         //Find AudioManager to play sounds
         m_AudioManager = FindObjectOfType<AudioManager>();

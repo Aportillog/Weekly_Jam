@@ -37,8 +37,10 @@ public class MovableObject : MonoBehaviour {
 	
 
 	void Update () {
+        //Check if the game is paused
+        isPaused = m_GameController.isPaused;
         //Move object with mouse if can move
-        if (canMove)
+        if (canMove && !isPaused)
         {
             MoveWithMouse();
             if (Input.GetButtonDown("Fire2") && canPlace)
@@ -68,7 +70,7 @@ public class MovableObject : MonoBehaviour {
     private void OnMouseDown()
     {
         //Change object position once placed
-        if (!canMove)
+        if (!canMove && !isPaused)
         {
             m_AudioManager.Play("SelectItem");
             SetCanMove(true);
@@ -78,7 +80,7 @@ public class MovableObject : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (canMove)
+        if (canMove && !isPaused)
         {
             if (m_SpriteRenderer.color != m_CantPlaceColor)
                 m_previousColor = m_SpriteRenderer.color;
@@ -89,7 +91,7 @@ public class MovableObject : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (canMove)
+        if (canMove && !isPaused)
         {
             m_SpriteRenderer.color = m_previousColor;
             canPlace = true;
@@ -98,7 +100,7 @@ public class MovableObject : MonoBehaviour {
 
     private void OnMouseEnter()
     {
-        if (!canMove)
+        if (!canMove && !isPaused)
         {
             m_previousColor = m_SpriteRenderer.color;
             m_SpriteRenderer.color = m_HighlightedColor;
@@ -106,7 +108,7 @@ public class MovableObject : MonoBehaviour {
     }
     private void OnMouseExit()
     {
-        if (!canMove)
+        if (!canMove && !isPaused)
         {
             m_SpriteRenderer.color = m_NormalColor;
         }
@@ -116,7 +118,7 @@ public class MovableObject : MonoBehaviour {
     {
         canMove = target;
 
-        if (canMove)
+        if (canMove && !isPaused)
         {
             m_GameController.isBuilding = true;     //Inform GameController when start moving object
             m_SpriteRenderer.sortingOrder = 1;      //Draw sprite above the rest of the objects while moving

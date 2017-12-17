@@ -5,13 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour {
     
-    public bool isPaused;
+    private bool isPaused;
+
+    private GameController m_GameController;
 
     public GameObject pauseMenuCanvas;
-	
 
-	// Update is called once per frame
-	void Update () {
+    private void Awake()
+    {
+        m_GameController = FindObjectOfType<GameController>();
+        isPaused = false;
+    }
+    // Update is called once per frame
+    void Update () {
 
         if (isPaused)
         {
@@ -27,12 +33,14 @@ public class PauseMenuController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
+            m_GameController.isPaused = isPaused;
         }
 	}
 
     public void Resume()
     {
         isPaused = false;
+        m_GameController.isPaused = false;
     }
 
     public void QuitGame()
