@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4010505381122474}
   - component: {fileID: 212464376472458046}
   - component: {fileID: 95976054873783706}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fuente_japo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -54,25 +54,25 @@ MonoBehaviour:
   sounds:
   - name: SelectItem
     clip: {fileID: 8300000, guid: 28c58a61777878e4f8a063d2abdc0e20, type: 3}
-    volume: 0.5
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MusicAmbient
-    clip: {fileID: 8300000, guid: 28cbb8f7be043284098af56f35d2b36f, type: 3}
-    volume: 0.7
+    clip: {fileID: 8300000, guid: ce5cf8b9902e11d4ca64ea5be533fa69, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: PlaceItem
     clip: {fileID: 8300000, guid: 03e532bbbc87ee6448eb437eb301f9f9, type: 3}
-    volume: 0.5
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: DestroyItem
     clip: {fileID: 8300000, guid: a684dfc7346a9c74e81861de9a22f32b, type: 3}
-    volume: 0.5
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}

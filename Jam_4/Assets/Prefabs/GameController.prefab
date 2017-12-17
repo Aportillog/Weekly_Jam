@@ -52,8 +52,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableObjects:
-  - {fileID: 1914635206846552, guid: f69c7a25e8aaf5c40a2ff023d5fd7906, type: 2}
-  - {fileID: 1510400258445128, guid: b1b60f8b586dc5741a26a3ec8583b2f4, type: 2}
-  - {fileID: 1995678986747024, guid: c77091b83c0473d47ab1b38892778ee6, type: 2}
+  - {fileID: 1591259575952874, guid: 67669ce8fd1cc65438b425758600575e, type: 2}
+  - {fileID: 1511853548672620, guid: 8764970920d04bc489013b8575e39c24, type: 2}
+  - {fileID: 1925577683208016, guid: 67e6d5ebfc0bade438cc9804d249d0cc, type: 2}
+  - {fileID: 1975279809744716, guid: 691a570c7c1f73249aa95ad7f36b59b9, type: 2}
+  - {fileID: 1002147590984564, guid: 90777ce8c1a833d4b88323a78f70a816, type: 2}
+  - {fileID: 1186169851830388, guid: 098e76d847c78a44d9a6d6357c674008, type: 2}
+  - {fileID: 1133243391097538, guid: 68519ae860585604a805263e37548b27, type: 2}
+  - {fileID: 1233135148908568, guid: 673b99870b5e7c54987f20774e8aaa3e, type: 2}
+  - {fileID: 1891957483632744, guid: a33d313626741a6409acc076530fe961, type: 2}
+  - {fileID: 1514505503958452, guid: 423408c9fd7cdfa45ac143aff255a9ba, type: 2}
+  - {fileID: 1490179579936622, guid: 42cd37d4daaa3ee4aa9ccc3957a69d19, type: 2}
+  - {fileID: 1610911520715162, guid: 05c4febf1d0a34b4b9fa1f4a28612ca8, type: 2}
+  - {fileID: 1639518625485314, guid: 69d61985369add346af23d0348ef20e4, type: 2}
+  - {fileID: 1410828113273368, guid: 643a7b09ff1eae6438200c2b2dea3ad0, type: 2}
+  - {fileID: 1153031046771008, guid: 7b55c18ca3b33044eb05af6f02ab7fd9, type: 2}
+  - {fileID: 1140917094173770, guid: 313467364e062bc48b6856c8ed3933c0, type: 2}
   isBuilding: 1
   objectsCanMove: 1

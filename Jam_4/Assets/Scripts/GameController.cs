@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour {
 
     [SerializeField]
     public GameObject[] spawnableObjects; //All the spawnable objects referenced at unity
-
+    
     public bool isBuilding;
     public bool objectsCanMove; //Enable moving in all objects when instantiated
 
@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
     private AudioManager m_AudioManager;
 
     private Dictionary<string, GameObject> spawnObjectsDic; //Dictionary with all spawnable objects
-
+    
     private void Awake()
     {
         if (instance == null)
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
         }
 
         //Make GameController inmortal
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Use this for initialization
@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour {
 
     void Update()
     {
-        if(isBuilding)
+        if (isBuilding)
         {
             if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.Delete))
             {
@@ -80,7 +80,11 @@ public class GameController : MonoBehaviour {
             if (spawnObjectsDic.TryGetValue(objectName, out temp))
                 Debug.Log("Accessing dictionary with \"" + objectName + "\" key, successful");
             else
+            {
                 Debug.Log("Key: " + objectName + " not found in the objects dictionary.");
+                return;
+            }
+                
             //Use temp GameObject to make a clone and spawn it at the game scene
             clone = Instantiate(temp, GetMousePosition(), Quaternion.identity);
             //Set Move ability for all the objects
